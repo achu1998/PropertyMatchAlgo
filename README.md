@@ -15,7 +15,7 @@ Write an algorithm to match these properties and search criteria such that each 
 
 #### Extracting the Properties that matches the base condition 
 
-*Getting all the properties which matches the condition budget +/- 25% and adding to set
+* Getting all the properties which matches the condition budget +/- 25% and adding to set
 
 ```if minprice and maxprice:
     cursor.execute(
@@ -36,11 +36,11 @@ else:
             str(int(minprice) + budget) + ";")
 price = cursor.fetchall()
 for i in price:
-    ans.add(i)```
+    ans.add(i)
+```  
+   ##### Note - Both minimum and maximum price can be given by user or any one
     
-*`Note - Both minimum and maximum price can be given by user or any one`
-    
-*Getting all the properties which matches the condition bedroom +/- 2 and adding to set
+* Getting all the properties which matches the condition bedroom +/- 2 and adding to set
 
 ```if minbed and maxbed:
     cursor.execute("select id,lat,lon,price,bed,bath from props where bed >= "
@@ -58,11 +58,12 @@ else:
             ";")
 bed = cursor.fetchall()
 for i in bed:
-    ans.add(i)```
+    ans.add(i)
+```    
     
-*`Note - Both minimum and maximum bedroom can be given by user or any one`
+##### Note - Both minimum and maximum bedroom can be given by user or any one
     
-*Getting all the properties which matches the condition distance < 10 miles
+* Getting all the properties which matches the condition distance < 10 miles
 
 ```cursor.execute(
     "select id,lat,lon,price,bed,bath,(3956 *acos(cos(radians(" + latitude +
@@ -80,14 +81,15 @@ distance = cursor.fetchall()```
 for i in distance:
     for j in ans:
         if i[0] == j[0]:
-            final.append(i)```
+            final.append(i)
+```
             
-*`Note - final array has list of properties that matches the base condition`
+  ##### Note - final array has list of properties that matches the base condition
      
 *calculate percentage matches for all the properties in final.
 *Output must be properties with match percentage > 40   
 
-*`If the distance is within 2 miles, distance contribution for the match percentage is fully 30% else it depends on the distance`
+##### If the distance is within 2 miles, distance contribution for the match percentage is fully 30% else it depends on the distance
   ```if int(i[6]) <= 2:
         per += 30
     else:
@@ -123,9 +125,10 @@ for i in distance:
                 if int(i[3]) < int(minprice) - budget:
                     per += (int(i[3]) / int(minprice) + budget) * 100 * 0.3
                 elif int(i[3]) > int(minprice) + budget:
-                    per += (int(minprice) + budget / int(i[3])) * 100 * 0.3```
+                    per += (int(minprice) + budget / int(i[3])) * 100 * 0.3
+ ```
                     
-*`If the bedroom and bathroom fall between min and max, each will contribute a full 20%. If min or max is not given, the match percentage varies according to the value.`
+##### If the bedroom and bathroom fall between min and max, each will contribute a full 20%. If min or max is not given, the match percentage varies according to the value.
 ```if minbed and maxbed:
         if int(i[4]) >= int(minbed) and int(i[4]) <= int(maxbed):
             per += 20
@@ -163,7 +166,8 @@ for i in distance:
             if int(i[5]) < int(minbath):
                 per += (int(i[5]) / int(minbath)) * 100 * 0.2
             elif int(i[5]) > int(minbath):
-                per += (int(minbath) / int(i[5])) * 100 * 0.2```
+                per += (int(minbath) / int(i[5])) * 100 * 0.2
+ ```
                 
 
 #### Scaling large no. of data
