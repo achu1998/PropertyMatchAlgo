@@ -17,7 +17,8 @@ Write an algorithm to match these properties and search criteria such that each 
 
 * Getting all the properties which matches the condition budget +/- 25% and adding to set
 
-```if minprice and maxprice:
+```
+if minprice and maxprice:
     cursor.execute(
         "select id,lat,lon,price,bed,bath from props where price >= " +
         minprice + " and price <= " + maxprice + ";")
@@ -42,7 +43,8 @@ for i in price:
     
 * Getting all the properties which matches the condition bedroom +/- 2 and adding to set
 
-```if minbed and maxbed:
+```
+if minbed and maxbed:
     cursor.execute("select id,lat,lon,price,bed,bath from props where bed >= "
                    + minbed + " and bed <= " + maxbed + ";")
 else:
@@ -65,19 +67,22 @@ for i in bed:
     
 * Getting all the properties which matches the condition distance < 10 miles
 
-```cursor.execute(
+```
+cursor.execute(
     "select id,lat,lon,price,bed,bath,(3956 *acos(cos(radians(" + latitude +
     ")) * cos(radians(lat)) * cos(radians(lon) - radians(" + longitude +
     ")) + sin(radians(" + latitude +
     ")) * sin(radians(lat )))) AS distance  from props having distance < 10")
-distance = cursor.fetchall()```
+distance = cursor.fetchall()
+```
 
-*`Note - radius is multiplied by 3956 to get miles`
+##### Note - radius is multiplied by 3956 to get miles
       
 *match the output that matches the condition distance < 10 miles with properties persent at set.
 *final contains all the valid matches
 
-```final = []
+```
+final = []
 for i in distance:
     for j in ans:
         if i[0] == j[0]:
@@ -90,7 +95,8 @@ for i in distance:
 * Output must be properties with match percentage > 40   
 
 ##### If the distance is within 2 miles, distance contribution for the match percentage is fully 30% else it depends on the distance
-  ```if int(i[6]) <= 2:
+  ```
+    if int(i[6]) <= 2:
         per += 30
     else:
         per += 30 - (int(i[6]) - 2) * (30 / 8)
@@ -98,7 +104,8 @@ for i in distance:
         
 ##### If the budget is within min and max budget, the budget contribution for the match percentage is full 30%. If min or max is not given, +/- 10% budget is a full 30% match.
   
-  ```if minprice and maxprice:
+  ```
+  if minprice and maxprice:
         if int(i[3]) >= int(minprice) and int(i[3]) <= int(maxprice):
             per += 30
         else:
@@ -130,7 +137,8 @@ for i in distance:
  ```
                     
 ##### If the bedroom and bathroom fall between min and max, each will contribute a full 20%. If min or max is not given, the match percentage varies according to the value.
-```if minbed and maxbed:
+```
+    if minbed and maxbed:
         if int(i[4]) >= int(minbed) and int(i[4]) <= int(maxbed):
             per += 20
         else:
