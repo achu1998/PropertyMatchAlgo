@@ -183,6 +183,7 @@ for i in distance:
 
 * To know all the property within the radius
   * `we can use s2 library with radius as input and filter the properties within the given radius on the map`
+  ###### POST https://playablelocations.googleapis.com/v3:samplePlayableLocations?key=YOUR_API_KEY
  
 * Whenever new property is added
   * `data is send through web application firewall for security purpose and Load balancer`
