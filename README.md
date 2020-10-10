@@ -78,8 +78,8 @@ distance = cursor.fetchall()
 
 ##### Note - radius is multiplied by 3956 to get miles
       
-*match the output that matches the condition distance < 10 miles with properties persent at set.
-*final contains all the valid matches
+* match the output that matches the condition distance < 10 miles with properties persent at set.
+* final contains all the valid matches
 
 ```
 final = []
@@ -181,20 +181,20 @@ for i in distance:
 
 #### Scaling large no. of data
 
-* to know all the property within the radius
+* To know all the property within the radius
   * `we can use s2 library with radius as input and filter the properties within the given radius on the map`
  
-* whenever new property is added
+* Whenever new property is added
   * `data is send through web application firewall for security purpose and Load balancer`
   * `the location will be marked on the map`
  
-* need of websockets 
+* Need of websockets 
   * `for asynchronous way of sending and recieving data`
 
 * Can have a supply service
   * `supply service get the demand from the user and matches with the list of properties within the radius`
   
-* db should be always available
+* DB should be always available
   * `Database should be heavily readable/writeable`
 
 
