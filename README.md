@@ -86,8 +86,8 @@ for i in distance:
             
   ##### Note - final array has list of properties that matches the base condition
      
-*calculate percentage matches for all the properties in final.
-*Output must be properties with match percentage > 40   
+* calculate percentage matches for all the properties in final.
+* Output must be properties with match percentage > 40   
 
 ##### If the distance is within 2 miles, distance contribution for the match percentage is fully 30% else it depends on the distance
   ```if int(i[6]) <= 2:
@@ -173,28 +173,28 @@ for i in distance:
 #### Scaling large no. of data
 
 * to know all the property within the radius
-  *`we can use s2 library with radius as input and filter the properties within the given radius on the map`
+  * `we can use s2 library with radius as input and filter the properties within the given radius on the map`
  
 * whenever new property is added
-  *`data is send through web application firewall for security purpose and Load balancer`
-  *`the location will be marked on the map`
+  * `data is send through web application firewall for security purpose and Load balancer`
+  * `the location will be marked on the map`
  
 * need of websockets 
-  *`for asynchronous way of sending and recieving data`
+  * `for asynchronous way of sending and recieving data`
 
 * Can have a supply service
-  *`supply service get the demand from the user and matches with the list of properties within the radius`
+  * `supply service get the demand from the user and matches with the list of properties within the radius`
   
-*db should be always available
-  *`Database should be heavily readable/writeable`
+* db should be always available
+  * `Database should be heavily readable/writeable`
 
 
 ### Result
 
-Property Details with match percentage
+#### Property Details with match percentage
 
-(1, 54.0, 20.0, 1500, 2, 2, 0.0) match percentage:  83.33333333333333
-(3, 54.0, 20.0, 1750, 10, 10, 0.0) match percentage:  96.66666666666667
+* `(1, 54.0, 20.0, 1500, 2, 2, 0.0) match percentage:  83.33333333333333`
+* `(3, 54.0, 20.0, 1750, 10, 10, 0.0) match percentage:  96.66666666666667`
 
 
   
