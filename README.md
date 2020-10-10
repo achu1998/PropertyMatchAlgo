@@ -17,7 +17,7 @@ Write an algorithm to match these properties and search criteria such that each 
 
 *Getting all the properties which matches the condition budget +/- 25% and adding to set
 
-`if minprice and maxprice:
+```if minprice and maxprice:
     cursor.execute(
         "select id,lat,lon,price,bed,bath from props where price >= " +
         minprice + " and price <= " + maxprice + ";")
@@ -36,7 +36,7 @@ else:
             str(int(minprice) + budget) + ";")
 price = cursor.fetchall()
 for i in price:
-    ans.add(i)`
+    ans.add(i)```
     *`Note - Both minimum and maximum price can be given by user or any one`
     
 *Getting all the properties which matches the condition bedroom +/- 2 and adding to set
