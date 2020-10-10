@@ -206,7 +206,7 @@ for i in distance:
       "fieldsToReturn": string
     }
   ]
-}
+  }
 
   ```
  
