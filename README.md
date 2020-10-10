@@ -184,6 +184,31 @@ for i in distance:
 * To know all the property within the radius
   * `we can use google s2 library with radius as input and filter the properties within the given radius on the map`
   ###### https://playablelocations.googleapis.com/v3:samplePlayableLocations?key=YOUR_API_KEY
+  ###### The Request body
+  ```
+  {
+  "areaFilter": {
+    "s2CellId": string,
+  },
+  "criteria": [
+    {
+      "gameObjectType": number,
+      "filter": {
+          "maxLocationCount": number,
+          "spacing": {
+            "minSpacingMeters": number,
+            "pointType": enum(PointType)
+          },
+          "includedTypes": [
+            string
+          ],
+      },
+      "fieldsToReturn": string
+    }
+  ]
+}
+
+  ```
  
 * Whenever new property is added
   * `data is send through web application firewall for security purpose and Load balancer`
