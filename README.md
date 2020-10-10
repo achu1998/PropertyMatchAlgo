@@ -38,7 +38,7 @@ price = cursor.fetchall()
 for i in price:
     ans.add(i)
 ```  
-   ##### Note - Both minimum and maximum price can be given by user or any one
+   ##### Note - Both minimum and maximum price or any one can be given by user 
     
 * Getting all the properties which matches the condition bedroom +/- 2 and adding to set
 
@@ -61,7 +61,7 @@ for i in bed:
     ans.add(i)
 ```    
     
-##### Note - Both minimum and maximum bedroom can be given by user or any one
+##### Note - Both minimum and maximum bedroom or any one can be given by user
     
 * Getting all the properties which matches the condition distance < 10 miles
 
@@ -93,9 +93,10 @@ for i in distance:
   ```if int(i[6]) <= 2:
         per += 30
     else:
-        per += 30 - (int(i[6]) - 2) * (30 / 8)```
+        per += 30 - (int(i[6]) - 2) * (30 / 8)
+ ```
         
-*`If the budget is within min and max budget, the budget contribution for the match percentage is full 30%. If min or max is not given, +/- 10% budget is a full 30% match.`
+##### If the budget is within min and max budget, the budget contribution for the match percentage is full 30%. If min or max is not given, +/- 10% budget is a full 30% match.
   
   ```if minprice and maxprice:
         if int(i[3]) >= int(minprice) and int(i[3]) <= int(maxprice):
